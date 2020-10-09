@@ -19,17 +19,17 @@ public class B4fServiceApplication {
 		SpringApplication.run(B4fServiceApplication.class, args);
 	}
 
-	@Bean
-	@Profile("aws")
-	public EurekaInstanceConfigBean eurekaInstanceConfig(InetUtils inetUtils) {
-		log.info("Determining Eureka instance config on Amazon info");
-		EurekaInstanceConfigBean eurekaInstanceConfigBean = new EurekaInstanceConfigBean(inetUtils);
-		AmazonInfo info = AmazonInfo.Builder.newBuilder().autoBuild("eureka");
-		log.info("Got Azazon info: " + info);
-		eurekaInstanceConfigBean.setDataCenterInfo(info);
-		eurekaInstanceConfigBean.setHostname(info.get(AmazonInfo.MetaDataKey.localHostname));
-		eurekaInstanceConfigBean.setIpAddress(info.get(AmazonInfo.MetaDataKey.localIpv4));
-		return eurekaInstanceConfigBean;
-	}
+//	@Bean
+//	@Profile("aws")
+//	public EurekaInstanceConfigBean eurekaInstanceConfig(InetUtils inetUtils) {
+//		log.info("Determining Eureka instance config on Amazon info");
+//		EurekaInstanceConfigBean eurekaInstanceConfigBean = new EurekaInstanceConfigBean(inetUtils);
+//		AmazonInfo info = AmazonInfo.Builder.newBuilder().autoBuild("eureka");
+//		log.info("Got Azazon info: " + info);
+//		eurekaInstanceConfigBean.setDataCenterInfo(info);
+//		eurekaInstanceConfigBean.setHostname(info.get(AmazonInfo.MetaDataKey.localHostname));
+//		eurekaInstanceConfigBean.setIpAddress(info.get(AmazonInfo.MetaDataKey.localIpv4));
+//		return eurekaInstanceConfigBean;
+//	}
 
 }
